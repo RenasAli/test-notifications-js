@@ -20,3 +20,11 @@ button.addEventListener("click", ()=>{
                 });
             }
 })
+self.addEventListener('push', function(event) {
+    event.waitUntil(
+        self.registration.showNotification('Push Notification', {
+            body: event.data.text(),
+            icon: 'path_to_notification_icon.png' // Replace with your own icon path
+        })
+    );
+});
